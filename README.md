@@ -1,6 +1,6 @@
 # Reproduction
 
-For the issue TODO
+For the issue: https://github.com/aws/aws-sdk-js-crypto-helpers/issues/198
 
 ## Getting started
 
