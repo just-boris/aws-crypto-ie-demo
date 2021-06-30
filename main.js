@@ -3187,13 +3187,13 @@ var Sha256 = /** @class */ (function () {
         return this.operation.then(function (operation) {
             return new Promise(function (resolve, reject) {
                 operation.onerror = function () {
-                    reject("Error encountered finalizing hash");
+                    reject(new Error("Error encountered finalizing hash"));
                 };
                 operation.oncomplete = function () {
                     if (operation.result) {
                         resolve(new Uint8Array(operation.result));
                     }
-                    reject("Error encountered finalizing hash");
+                    reject(new Error("Error encountered finalizing hash"));
                 };
                 operation.finish();
             });
@@ -3209,10 +3209,10 @@ function getKeyPromise(secret) {
             if (keyOperation.result) {
                 resolve(keyOperation.result);
             }
-            reject("ImportKey completed without importing key.");
+            reject(new Error("ImportKey completed without importing key."));
         };
         keyOperation.onerror = function () {
-            reject("ImportKey failed to import key.");
+            reject(new Error("ImportKey failed to import key."));
         };
     });
 }
@@ -3226,6 +3226,7 @@ function toArrayBufferView(data) {
     return new Uint8Array(data);
 }
 //# sourceMappingURL=ie11Sha256.js.map
+
 
 /***/ }),
 /* 105 */
